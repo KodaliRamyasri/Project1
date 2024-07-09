@@ -1,0 +1,54 @@
+{% extends 'navBar/employerNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applications</title>
+</head>
+<body>
+{% block body %}
+    <h1>Job Applications</h1>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Job Details</th>
+                <th>Resume</th>
+                <th>Cover Letter</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jobApplication in jobApplications %}
+                <tr>
+                    <td>{{ jobApplication.name }}</td>
+                    <td>{{ jobApplication.email }}</td>
+                    <td>{{ jobApplication.jobDetails }}</td>
+                    <td>
+                        {% if jobApplication.resume %}
+                            <a href="{{ jobApplication.resume.url }}" target="_blank">Download Resume</a>
+                        {% else %}
+                            No resume uploaded
+                        {% endif %}
+                    </td>
+                    <td>{{ jobApplication.coverLetter }}</td>
+                    <td>
+                        <a href="#" class="btn btn-success">Schedule Interview</a>
+                        <a href="#" class="btn btn-danger">Application Rejected</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<style>
+table, th, td {
+  border:2px solid black;
+}
+</style>
+{% endblock %}
+</body>
+</html>

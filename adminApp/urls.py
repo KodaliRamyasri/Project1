@@ -1,0 +1,30 @@
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('', views.projectHomePage, name='projectHomePage'),
+    path('employerHomePage/', views.employerHomePage, name='employerHomePage'),
+    path('jobSeekerHomePage/', views.jobSeekerHomePage, name='jobSeekerHomePage'),
+    path('print/',views.printToConsole, name='printToConsole'),
+    path('print1/',views.print1, name='print1'),
+    path('add/',views.add, name='add'),
+    path('add1/',views.add1, name='add1'),
+    path('randomPageCall/',views.randomPageCall, name='randomPageCall'),
+    path('randomLogic/',views.randomLogic, name='randomLogic'),
+    path('getDatePageCall/',views.getDatePageCall, name='getDatePageCall'),
+    path('getDateLogic/',views.getDateLogic, name='getDateLogic'),
+    path('location_time/',views.location_time,name='location_time'),
+    path('location_time_view/',views.location_time_view,name='location_time_view'),
+    path('signIn/', views.signIn, name='signIn'),
+    path('signIn1/', views.signIn1, name='signIn1'),
+    path('logIn/', views.logIn, name='logIn'),
+    path('logIn1/', views.logIn1, name='logIn1'),
+    path('contactPageCall/',views.contactPageCall,name='contactPageCall'),
+    path('contactLogic/',views.contactLogic,name='contactLogic'),
+    path('logOut/', views.logOut, name='logOut'),
+    path('weatherPageCall/',views.weatherPageCall,name='weatherPageCall'),
+    path('weatherLogic/',views.weatherLogic,name='weatherLogic'),
+    path('emailSent/',views.sendEmails,name='emailSent'),
+    path('qrPageCall/',views.qrPageCall,name='qrPageCall'),
+    path('qrLogic/',views.qrLogic,name='qrLogic'),
+]

@@ -1,0 +1,35 @@
+{% extends 'navBar/projectNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Time by Location</title>
+</head>
+<body>
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Select a Location to View the Current Time</h1>
+            <form method="post" action="{% url 'location_time_view' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Get Time</button>
+            </form>
+            <p>Current Time: {{ current_time }}</p>
+            <p>Selected Location: {{ selected_location }}</p>
+        </div>
+        <div class="col">
+            {% if current_time %}
+                <h2>Current time in {{ selected_location }}: {{ current_time }}</h2>
+            {% else %}
+                <h2>No time selected yet.</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

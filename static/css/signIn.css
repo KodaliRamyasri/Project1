@@ -1,0 +1,43 @@
+/* signIn.css */
+
+h2 {
+    color: #45a049; /* Change this to any color you prefer */
+}
+.signin-container h2 {
+            margin-bottom: 20px;
+        }
+        .signin-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .signin-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .signin-container button:hover {
+            background-color: #45a049;
+        }
+        .signin-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width:100vw;
+            }
+
+        .signin-container1 {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width:50vw;
+            margin:auto;
+            }

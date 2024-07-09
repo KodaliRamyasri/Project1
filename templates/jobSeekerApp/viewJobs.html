@@ -1,0 +1,49 @@
+{% extends 'navBar/jobSeekerNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <h2>Job Details List</h2>
+    <form class="d-flex" method="GET" action="{% url 'jobSearch' %}">
+        <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search location" name="r" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    {% if noMatch %}
+        <h1>No match found</h1>
+    {% else %}
+        <div class="row">
+            {% for jobDetails in jobDetailsList %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ jobDetails.work_title }}</h5>
+                            <p class="card-text">
+                                <strong>Job Title:</strong> {{ jobDetails.jobTitle }}<br>
+                                <strong>Job Id:</strong> {{ jobDetails.jobID }}<br>
+                                <strong>Salary Offered:</strong> {{ jobDetails.salary}}<br>
+                                <strong>Experience Required:</strong> {{ jobDetails.experience }}<br>
+                                <strong>Work Location:</strong> {{ jobDetails.location }}<br>
+                                <strong>Required Skills:</strong> {{ jobDetails.skills }}
+                            </p>
+                            <!-- Apply button -->
+                            <a href="{% url 'applyToJob' jobDetails.id %}" class="btn btn-success">Apply to this job</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+{% endblock %}
+</body>
+</html>

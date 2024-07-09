@@ -1,0 +1,55 @@
+{% extends 'navBar/employerNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'path/to/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title:</label>
+                            <input type="text" class="form-control" name="jobTitle" value="{{ jobDetails.jobTitle }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobID">Job Id:</label>
+                            <input type="text" class="form-control" name="jobID" value="{{ jobDetails.jobID }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Salary Offered:</label>
+                            <textarea class="form-control" name="salary" required>{{ jobDetails.salary }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Experience Required:</label>
+                            <input type="text" class="form-control" name="experience" value="{{ jobDetails.experience }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Work Location:</label>
+                            <input type="text" class="form-control" name="location" value="{{ jobDetails.location }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Required Skills:</label>
+                            <textarea class="form-control" name="skills" required>{{ jobDetails.skills }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

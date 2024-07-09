@@ -1,0 +1,32 @@
+{% extends 'navBar/employerNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        {% for jobDetails in jobDetailsList %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ jobDetails.jobTitle }}</h5>
+                        <p class="card-text">Job Id:: {{ jobDetails.jobID }}</p>
+                        <p class="card-text">Salary Offered: {{ jobDetails.salary }}</p>
+                        <p class="card-text">Experience Required: {{ jobDetails.experience }}</p>
+                        <p class="card-text">Work Location: {{ jobDetails.location }}</p>
+                        <p class="card-text">Required Skills: {{ jobDetails.skills }}</p>
+                        <a href="{% url 'editJobDetails' jobDetails.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'deleteJobDetails' jobDetails.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
